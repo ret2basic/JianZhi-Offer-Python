@@ -15,17 +15,14 @@ class Solution:
         queue = collections.deque()
         queue.append(root)
         count = 0
-
+        
         while queue:
-            level = collections.deque()
             for _ in range(len(queue)):
                 node = queue.popleft()
                 if node.left:
-                    level.append(node.left)
+                    queue.append(node.left)
                 if node.right:
-                    level.append(node.right)
-            queue = level
+                    queue.append(node.right)
             count += 1
 
         return count
-        
