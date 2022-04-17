@@ -12,6 +12,9 @@ class Solution:
         if not root:
             return
 
-        root.left, root.right = self.mirrorTree(root.right), self.mirrorTree(root.left)
-        
+        root.left, root.right = root.right, root.left
+
+        self.mirrorTree(root.left)
+        self.mirrorTree(root.right)
+
         return root
